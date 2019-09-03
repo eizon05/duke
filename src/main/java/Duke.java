@@ -61,7 +61,6 @@ public class Duke {
      * @throws DukeException
      * @throws IOException
      */
-
     public static void main(String[] args) throws DukeException, IOException {
         new Duke("../data/duke.txt", "../data").run();
     }

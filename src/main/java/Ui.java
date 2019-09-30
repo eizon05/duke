@@ -67,6 +67,15 @@ public class Ui {
     }
 
     /**
+     * Notifies user that a task was archived
+     * @param task Task that was completed
+     */
+    public String archive(Task task) {
+
+        return "Nice! I've archived the task:\n" + task + "\n" + "(TIP: YOU CAN VIEW YOUR ARCHIVED TASKS FROM THE archive.txt FILE)";
+    }
+
+    /**
      * Shows an error to the user
      * @param message The error message
      */

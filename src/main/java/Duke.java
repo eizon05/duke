@@ -1,16 +1,3 @@
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -22,17 +9,6 @@ public class Duke {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
-
-    private Duke duke;
-
-    private ScrollPane scrollPane;
-    private VBox dialogContainer;
-    private TextField userInput;
-    private Button sendButton;
-    private Scene scene;
-
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
 
     private boolean isExit = false;
 
@@ -47,8 +23,11 @@ public class Duke {
      * @param folderPath Folder Path in which duke.txt is saved
      */
     public Duke(String filePath, String folderPath) {
+
         ui = new Ui();
+
         storage = new Storage(filePath, folderPath);
+
         try {
             tasks = new TaskList(storage.retrieve());
         } catch (FileNotFoundException e) {
@@ -61,6 +40,7 @@ public class Duke {
                 System.exit(0);
             }
         }
+
     }
 
     /**

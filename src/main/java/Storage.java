@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,8 +7,8 @@ import java.util.Scanner;
  */
 public class Storage {
 
-    public String folderPath;
-    public String filePath;
+    private String folderPath;
+    private String filePath;
 
     /**
      * Initialises a Storage Class with a filePath and a folderPath
@@ -114,6 +111,28 @@ public class Storage {
 
         } catch (IOException e) {
           throw DukeException.couldNotSave();
+        }
+
+    }
+
+    /**
+     * Saves the Archived Task in a file
+     * @param task The task to save
+     * @throws DukeException
+     */
+    public void saveArchiveTask (Task task) throws DukeException {
+
+        try {
+
+            FileWriter fileWriter = new FileWriter("data/archive.txt",true);
+
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(task.toString() + "\n");
+            bufferedWriter.close();
+
+        } catch (IOException e) {
+
+            throw DukeException.couldNotSave();
         }
 
     }

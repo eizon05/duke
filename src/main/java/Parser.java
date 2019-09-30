@@ -38,7 +38,9 @@ public class Parser {
         case "find":
             text = Parser.parsesFind(command);
             return new FindCommand(text);
-
+        case "archive":
+            index = Parser.parsesArchive(command);
+            return new ArchiveCommand(index);
         }
 
         switch (command) {
@@ -79,6 +81,20 @@ public class Parser {
      * @throws DukeException
      */
     public static int parsesDelete (String command) throws DukeException {
+
+        String[] words = command.split(" ", 2);
+
+        if (words.length == 1) throw DukeException.emptyDescription();
+
+        if (words[1].isBlank()) throw DukeException.emptyDescription();
+
+        int index = Integer.valueOf(words[1]) - 1;
+
+        return index;
+
+    }
+
+    public static int parsesArchive (String command) throws DukeException {
 
         String[] words = command.split(" ", 2);
 

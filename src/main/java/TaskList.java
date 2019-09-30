@@ -38,7 +38,7 @@ public class TaskList {
       
       assert index >= 0 : "INDEX SHOULD BE GREATER THAN ZERO";
 
-        if (index < 0 || index > list.size()) throw DukeException.outOfBounds();
+        if (index < 0 || (index + 1) > list.size()) throw DukeException.outOfBounds();
 
         Task task = list.get(index);
         task.markAsDone();
@@ -53,7 +53,7 @@ public class TaskList {
      */
     public Task delete (int index) throws DukeException {
 
-        if (index < 0 || index > list.size()) throw DukeException.outOfBounds();
+        if (index < 0 || (index + 1) > list.size()) throw DukeException.outOfBounds();
 
         assert index >= 0 : "INDEX SHOULD BE GREATER THAN ZERO";
 
@@ -74,5 +74,10 @@ public class TaskList {
         }
 
         return tasks.toArray(new Task[tasks.size()]);
+    }
+
+    public Task archive (int index) throws DukeException {
+
+        return this.delete(index);
     }
 }

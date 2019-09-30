@@ -25,6 +25,8 @@ public class ArchiveCommand extends Command {
 
         storage.saveArchiveTask(task);
 
+        storage.save(taskList.list);
+
         return ui.archive(task);
 
     }

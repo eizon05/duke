@@ -96,8 +96,6 @@ public class Storage {
      * @throws DukeException
      */
     public void save (ArrayList<Task> list) throws DukeException {
-      
-      assert list.isEmpty() : "LIST SHOULD NOT BE EMPTY";
 
         try {
 
